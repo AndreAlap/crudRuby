@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  status: false
+  cnpj: MyString
+  ie: MyString
+  ci: MyString
+  dateFoundation: 2017-09-06
+  address: one
+  category: one
+
+two:
+  name: MyString
+  status: false
+  cnpj: MyString
+  ie: MyString
+  ci: MyString
+  dateFoundation: 2017-09-06
+  address: two
+  category: two

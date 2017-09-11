@@ -1,0 +1,96 @@
+
+
+<%= form_with(model: supplier, local: true) do |form| %>
+  <% if supplier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+
+      <ul>
+      <% supplier.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :supplier_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status, id: :supplier_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cnpj %>
+    <%= form.text_field :cnpj, id: :supplier_cnpj %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ie %>
+    <%= form.text_field :ie, id: :supplier_ie %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ci %>
+    <%= form.text_field :ci, id: :supplier_ci %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dateFoundation %>
+    <%= form.date_select :dateFoundation, id: :supplier_dateFoundation %>
+  </div>
+
+  <%= fields_for :address, @supplier.address do |a| %>
+    <div class="field">
+      <%= a.label :street, 'Rua' %>
+      <%= a.text_field :street %>
+    </div>
+
+    <div class="field">
+      <%= a.label :number %>
+      <%= a.text_field :number %>
+    </div>
+  
+    <div class="field">
+      <%= a.label :cep %>
+      <%= a.text_field :cep %>
+    </div>
+
+    <div class="field">
+      <%= a.label :city %>
+      <%= a.text_field :city %>
+    </div>
+
+    <div class="field">
+      <%= a.label :state %>
+      <%= a.text_field :state %>
+    </div>
+
+    <div class="field">
+      <%= a.label :country %>
+      <%= a.text_field :country %>
+    </div>
+
+    <div class="field">
+      <%= a.label :obs %>
+      <%= a.text_field :obs %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.collection_select(:category_id, @categories, :id, :nome) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :responsable %>
+    <%= form.text_field :responsable %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
